@@ -10,11 +10,19 @@ node_modules/
 reports/
 test-results/
 playwright-report/
+cucumber-report.html
+cucumber-report.json
 
 # Screenshots and videos
 screenshots/
 videos/
+*.webm
 test.png
+
+# TypeScript build output
+dist/
+build/
+*.tsbuildinfo
 
 # Debug files
 *.log
@@ -23,3 +31,6 @@ npm-debug.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# VS Code local workspace files
+*.code-workspace
