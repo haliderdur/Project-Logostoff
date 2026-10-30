@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Test reports
+reports/
+test-results/
+playwright-report/
+
+# Screenshots and videos
+screenshots/
+videos/
+test.png
+
+# Debug files
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
