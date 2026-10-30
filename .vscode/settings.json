@@ -1,0 +1,17 @@
+{
+  // Configuration for the "Cucumber (Gherkin) Full Support" extension
+  // (alexkrechik.cucumberautocomplete). Points the extension at the
+  // project's step definitions and feature files so it can resolve
+  // Given/When/Then steps and clear "Was unable to find step" warnings.
+  "cucumberautocomplete.steps": [
+    "step-definitions/**/*.ts"
+  ],
+  "cucumberautocomplete.features": [
+    "features/**/*.feature"
+  ],
+  "cucumberautocomplete.syncFeatures": true,
+  "cucumberautocomplete.strictGherkinCompletion": true,
+  "cucumberautocomplete.smartSnippets": true,
+  "cucumberautocomplete.stepsInvariants": true,
+  "cucumberautocomplete.onSaveFormat": true
+}

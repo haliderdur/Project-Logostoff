@@ -1,6 +1,6 @@
 import { Before, After } from "@cucumber/cucumber";
 import { chromium } from "playwright";
-import type { CustomWorld } from "./world.ts";
+import type { CustomWorld } from "./world.js";
 
 Before(async function (this: CustomWorld): Promise<void> {
   this.browser = await chromium.launch({
