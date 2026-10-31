@@ -13,5 +13,11 @@
   "cucumberautocomplete.strictGherkinCompletion": true,
   "cucumberautocomplete.smartSnippets": true,
   "cucumberautocomplete.stepsInvariants": true,
-  "cucumberautocomplete.onSaveFormat": true
+  "cucumberautocomplete.onSaveFormat": true,
+
+    // Cucumber JS Test Runner
+  "cucumberJsRunner.features": [
+    "features/**/*.feature"
+  ],
+  "cucumberJsRunner.cucumberExecutable": "./node_modules/@cucumber/cucumber/bin/cucumber.js"
 }
