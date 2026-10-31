@@ -1,3 +1,24 @@
+/**
+ * @file hooks.ts
+ * @description Manages the Playwright browser lifecycle for Cucumber BDD scenarios.
+ *
+ * Before Hook:
+ * - Launches Chromium using the configured headless setting.
+ * - Creates a browser context with the configured viewport dimensions.
+ * - Opens a new page before each scenario.
+ *
+ * After Hook:
+ * - Captures and attaches a full-page screenshot when a scenario fails.
+ * - Closes the browser context and browser after each scenario.
+ * - Ensures cleanup even if screenshot capture or context closure fails.
+ *
+ * Configuration:
+ * - Reads browser settings and Cucumber timeout from utils/config.ts.
+ *
+ * @see ../utils/config.ts
+ * @see ./world.ts
+ */
+
 import { Before, After, Status, setDefaultTimeout } from "@cucumber/cucumber";
 
 import { chromium } from "playwright";
@@ -8,10 +29,12 @@ setDefaultTimeout(config.timeout.cucumber);
 
 Before(async function (this: CustomWorld): Promise<void> {
   this.browser = await chromium.launch({
-    headless: false,
+    headless: config.browser.headless,
   });
 
-  this.context = await this.browser.newContext();
+  this.context = await this.browser.newContext({
+    viewport: config.browser.viewport,
+  });
   this.page = await this.context.newPage();
 });
 
