@@ -17,10 +17,7 @@ Feature: Logostoff Product Search
   #   that has not yet been established via Phase 1 exploration). These
   #   scenarios should be filtered out of normal execution runs until the
   #   underlying assumption is confirmed.
-  # @pending-clarification — the expected behavior itself is not yet defined
-  #   or agreed upon (not just an unconfirmed fact about the site), and the
-  #   scenario exists to record an open question rather than assert a
-  #   confirmed outcome.
+
 
   @REQ-001 @TC-001
   Scenario: Search entry point is accessible from the homepage header
@@ -36,9 +33,9 @@ Feature: Logostoff Product Search
     Then a search entry point should be visible in the header
 
     Examples:
-      | page type            |
-      | collection page       |
-      | product detail page   |
+      | page type           |
+      | collection page     |
+      | product detail page |
 
   @REQ-001 @TC-002 @pending-verification
   Scenario: Searching for a known product keyword returns matching results
