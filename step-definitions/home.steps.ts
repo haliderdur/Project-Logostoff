@@ -1,17 +1,13 @@
 import { Given, Then } from "@cucumber/cucumber";
 import { expect } from "playwright/test";
-import { HomePage } from "../pages/homePage.js";
 import type { CustomWorld } from "../support/world.js";
 import { config } from "../utils/config.js";
 
 Given(
-  "I navigate to the Logostoff homepage",
+  "I navigate to the Logostoff home page",
   async function (this: CustomWorld): Promise<void> {
-    if (!this.page) {
-      throw new Error("Playwright page is not initialized");
-    }
+    const homePage = this.getHomePage();
 
-    const homePage = new HomePage(this.page);
     await homePage.open();
   },
 );
@@ -19,11 +15,9 @@ Given(
 Then(
   "The homepage should be displayed successfully",
   async function (this: CustomWorld): Promise<void> {
-    if (!this.page) {
-      throw new Error("Playwright page is not initialized");
-    }
+    const page = this.getPage();
 
-    await expect(this.page).toHaveURL(config.baseUrl);
-    await expect(this.page.locator("body")).toBeVisible();
+    await expect(page).toHaveURL(config.baseUrl);
+    await expect(page.locator("body")).toBeVisible();
   },
 );

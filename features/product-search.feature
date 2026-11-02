@@ -20,22 +20,23 @@ Feature: Logostoff Product Search
 
 
   @REQ-001 @TC-001
-  Scenario: Search entry point is accessible from the homepage header
-    Given I navigate to the Logostoff homepage
-    Then a search entry point should be visible in the header
+  Scenario: Search icon is accessible from the home page header
+    Given I navigate to the Logostoff home page
+    Then a search icon should be visible in the right top side of banner image
 
   @REQ-001 @TC-001 @pending-verification
-  Scenario Outline: Search entry point is accessible from the header on other page types
+  Scenario Outline: Search icon is accessible from the header on other page types
     # The presence of a header search entry point on these page types has not
     # been confirmed; requirements.md only explicitly discusses the homepage
     # header search icon.
     Given I navigate to the Logostoff <page type>
-    Then a search entry point should be visible in the header
+    Then a search icon should be visible in the right top side of banner image
 
     Examples:
-      | page type           |
-      | collection page     |
-      | product detail page |
+      | page type    |
+      | home page    |
+      | product page |
+      | contact page |
 
   @REQ-001 @TC-002 @pending-verification
   Scenario: Searching for a known product keyword returns matching results

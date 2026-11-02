@@ -6,6 +6,7 @@
  * - Launches Chromium using the configured headless setting.
  * - Creates a browser context with the configured viewport dimensions.
  * - Opens a new page before each scenario.
+ * - Initializes the HomePage Page Object for each scenario.
  *
  * After Hook:
  * - Captures and attaches a full-page screenshot when a scenario fails.
@@ -20,10 +21,10 @@
  */
 
 import { Before, After, Status, setDefaultTimeout } from "@cucumber/cucumber";
-
 import { chromium } from "playwright";
 import { config } from "../utils/config.js";
 import type { CustomWorld } from "./world.js";
+import { HomePage } from "../pages/homePage.js";
 
 setDefaultTimeout(config.timeout.cucumber);
 
@@ -36,6 +37,7 @@ Before(async function (this: CustomWorld): Promise<void> {
     viewport: config.browser.viewport,
   });
   this.page = await this.context.newPage();
+  this.homePage = new HomePage(this.page);
 });
 
 After(async function (this: CustomWorld, scenario): Promise<void> {
