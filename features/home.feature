@@ -4,5 +4,5 @@ Feature: Logostoff Homepage
   So that I can access the website
 
   Scenario: Verify homepage loads successfully
-    Given I navigate to the Logostoff homepage
+    Given I navigate to the Logostoff home page
     Then The homepage should be displayed successfully

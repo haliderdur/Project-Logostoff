@@ -42,7 +42,7 @@ Feature: Logostoff Product Search
   Scenario: Searching for a known product keyword returns matching results
     # Relies on a "known matching product keyword" that has not yet been
     # confirmed via Phase 1 exploration.
-    Given I navigate to the Logostoff homepage
+    Given I navigate to the Logostoff home page
     When I search for a known matching product keyword
     Then the search results should display at least one matching product
     And each result should show a product image, title, and price
@@ -53,7 +53,7 @@ Feature: Logostoff Product Search
     # this file being valid for the search feature to be exercised at all;
     # the exact no-results indication's wording is unconfirmed, so this
     # scenario asserts behavior only, not literal copy.
-    Given I navigate to the Logostoff homepage
+    Given I navigate to the Logostoff home page
     When I search for "zzxynonexistentproduct123"
     Then an indication that no results were found should be displayed
     And no application error or blank page should occur
@@ -67,7 +67,7 @@ Feature: Logostoff Product Search
   Scenario: Selecting a search result navigates to the correct product page
     # Relies on a "known matching product keyword" that has not yet been
     # confirmed via Phase 1 exploration.
-    Given I navigate to the Logostoff homepage
+    Given I navigate to the Logostoff home page
     When I search for a known matching product keyword
     And I select the first result from the search results
     Then I should be taken to the product detail page matching that result's title
