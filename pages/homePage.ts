@@ -16,10 +16,16 @@ export class HomePage extends BasePage {
   }
 
   get produkteLink(): Locator {
-    return this.page.locator("//a[@href='/collections/all' and @ref='menuitem']");
+    return this.page.locator(
+      "//a[@href='/collections/all' and @ref='menuitem']",
+    );
   }
 
   get kontaktLink(): Locator {
     return this.page.locator("//a[@href='/pages/contact' and @ref='menuitem']");
+  }
+
+  get searchInputBox(): Locator {
+    return this.page.getByRole("combobox", { name: "suchen" });
   }
 }
